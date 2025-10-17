@@ -61,6 +61,11 @@ public class ConvertInput {
             }
 
             int number = Integer.parseInt(value);
+
+            if (number < 0) {
+                throw new IllegalArgumentException("음수는 허용되지 않습니다.");
+            }
+
             numbers[i] = number;
         }
         return numbers;

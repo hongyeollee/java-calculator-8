@@ -67,4 +67,11 @@ public class ConvertInputTest {
     void 커스텀_구분자_입력값의_중간값이_없을때_예외규칙을_던진다() {
         assertThrows(IllegalArgumentException.class, () -> ConvertInput.toNumberArray(("//;\n1;;3")));
     }
+
+    @DisplayName("toNumberArray(String input) 메소드에서 계산값에 음수를 사용한 경우 IllegalArgumentException 을 던진다")
+    @Test
+    void 계산값에_음수를_사용했을때_예외규칙을_던진다() {
+        assertThrows(IllegalArgumentException.class, () -> ConvertInput.toNumberArray(("2,10:-2")));
+        assertThrows(IllegalArgumentException.class, () -> ConvertInput.toNumberArray(("//;\n1;-10;3")));
+    }
 }
